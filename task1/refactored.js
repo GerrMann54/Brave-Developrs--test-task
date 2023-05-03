@@ -1,36 +1,36 @@
-function func(s, a, b) {
+// Задача функции - вернуть последний (проверка идёт с конца) индекс символа переданной строки, 
+// если он совпадает с одним из двух переданных символов.
+// Функцию и её аргументы следует перееименовать соответствующим образом.
 
-    if (s.match(/$/)) {
-        return -1;
+function getIndexOfChar(string, charA, charB) {
+
+    // Сокращение условий до однострочной записи, везде, где это возможно
+
+    // Данное условие нужно для проверки, пустая ли строка передана в string
+    // if (string.match(/^$/)) return -1;
+    // Можно записать проще
+    if (!string) return -1
+
+    // Замена всех сравнений на более новый и правильный вариант с "==" на "==="
+
+    // Цикл лучше заменить на for, избавившись от aIndex, bIndex
+    for (let i = string.length - 1; i > 0; i--) {
+        // Т.к. в дальнейшем не происходит никакой обработки индексов,
+        // то возвращать их можно сразу после нахождения
+        // Само условие так же можно записать проще
+        if (charA === string[i] || charB === string[i]) return i;
     }
 
-    var i = s.length - 1;
-    var aIndex = -1;
-    var bIndex = -1;
+    // Последние условия не имеют смысла, т.к. цикл прерывается после нахождения хотя бы одного совпадения,
+    // а далее не происходит никакой обработки индексов.
 
-    while ((aIndex == -1) && (bIndex == -1) && (i > 0)) {
-        if (s.substring(i, i + 1) == a) {
-            aIndex = i;
-        }
-        if (s.substring(i, i + 1) == b) {
-            bIndex = i;
-        }
-        i = i - 1;
-    }
+    // if (aIndex !== -1) {
+    //     if (bIndex === -1) return aIndex;
+    //     else return Math.max(aIndex, bIndex);
+    // }
+    // if (bIndex !== -1) return bIndex;
+    // else return -1;
 
-    if (aIndex != -1) {
-        if (bIndex == -1) {
-            return aIndex;
-        }
-        else {
-            return Math.max(aIndex, bIndex);
-        }
-    }
-
-    if (bIndex != -1) {
-        return bIndex;
-    }
-    else {
-        return -1;
-    }
-} 
+    // Нсли совпадения не найдены, то
+    return -1;
+}
