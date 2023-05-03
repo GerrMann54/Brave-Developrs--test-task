@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+    border: none;
+    border-radius: 0;
+    outline: none;
+    text-decoration: none;
+    line-height: 100%;
+}
+
+body {
+    background-color: #111;
+    color: #eee;
+    min-height: 100vh;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+    .flex-center.vert {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+.img-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+h1, .h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+    h2, .h2 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    p.secondary {
+        color: #888;
+    }
+
+button {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fcac45;
+    color: #eee;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 16px;
+    min-width: 100px;
+    padding: 0 30px;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+    button:hover {      
+        scale: 1.1;
+    }
+
+    button:active {
+        background-color: #111;
+        color: #fcac45;
+        transition: 16ms;
+        border: 1px solid #fcac45;
+    }
+
+    button.alt {
+        background-color: #222;
+        color: #fcac45;
+    }
+
+        button.alt:active {
+            background-color: #333;
+            border: none;
+        }
+
+    button.locked {
+        background-color: #222;
+        color: #888;
+        cursor: not-allowed;
+    }
+
+        button.locked:hover {
+            scale: none;
+        }
+
+        button.locked:active {
+            background-color: #222;
+            color: #888;
+            border: none;
+        }
+
+input {
+    width: 100%;
+    font-size: 16px;
+    background-color: transparent;
+    color: #eee;
+    padding-bottom: 18px;
+    border-bottom: 3px solid #fcac45;
+}
+
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        min-width: 280px;
+        max-width: 640px;
+        width: calc(100% - 20px);
+        gap: 30px;
+        padding: 30px 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: 400ms;
+    }
+
+        .block.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .block .main-wrapper {
+            background-color: #222;
+            border-radius: 5px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            overflow-y: auto;
+        }
+
+        .main-wrapper .list-container {
+            border-top: 1px solid #888 !important;
+        }
+
+            .list-container .item {
+                border-bottom: 1px solid #888;
+                padding: 20px;
+                cursor: pointer;
+                transition: 200ms;
+            }
+
+            .list-container .item.selected {
+                background-color: #fcac45 !important;
+            }
+
+                .list-container .item:hover {
+                    background-color: #333;
+                }
+                
+                    .list-container .item:hover p,
+                    .list-container .item.selected p {
+                        font-weight: bold;
+                        line-height: 16px;
+                        font-size: 18px;
+                    }
+
+    .block.operator-list .buttons-wrapper {
+        display: flex;
+        justify-content: end;
+    }
+
+    .block.payment .buttons-wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #payment-status.error {
+        color: red;
+    }
+
+    #payment-status.success {
+        color: green;
+    }

@@ -8,8 +8,38 @@
     <title>Оплата мобильной связи</title>
 </head>
 <body>
-    <div class="container">
-        .block
+    <div class="container flex-center vert">
+        <div class="block operator-list show">
+            <div class="main-wrapper">
+                <h1>Выберите оператора</h1>
+                <div class="list-container">
+                    <div class="item" data-operator-id="0">
+                        <p>МТС</p>
+                    </div>
+                    <div class="item" data-operator-id="1">
+                        <p>Билайн</p>
+                    </div>
+                    <div class="item" data-operator-id="2">
+                        <p>Мегафон</p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-wrapper">
+                <button id="next" class="locked">Продолжить</button>
+            </div>
+        </div>
+        <div class="block payment">
+            <div class="main-wrapper">
+                <input id="phone" type="text" placeholder="Номер: 7XXXXXXXXXX">
+                <input id="money" type="text" placeholder="Сумма: от 1 до 1000 р.">
+                <p id="payment-status" class="secondary">Введите номер телефона и нужную сумму.</p>
+            </div>
+            <div class="buttons-wrapper">
+                <button id="back" class="alt">Назад</button>
+                <button id="pay" class="locked">Опллатить</button>
+            </div>
+        </div>
     </div>
 </body>
+<script src="./main.js"></script>
 </html>
